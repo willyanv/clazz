@@ -2,7 +2,7 @@
 	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>up</groupId>
+	<groupId>clazz</groupId>
 	<artifactId>design-patterns</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
@@ -19,11 +19,6 @@
 			<artifactId>mockito-all</artifactId>
 			<version>1.9.0</version> 
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>xingu</groupId>
-			<artifactId>xingu-utils</artifactId>
-			<version>${xingu}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -49,43 +44,18 @@
 				</configuration>
 			</plugin>
 			<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-source-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
 				<version>2.1.2</version>
-					<executions>
-							<execution>
+				<executions>
+					<execution>
 						<id>attach-sources</id>
 						<goals>
-								<goal>jar</goal>
+							<goal>jar</goal>
 						</goals>
-				</execution>
-					</executions>
+					</execution>
+				</executions>
 			</plugin>
-			<plugin>
-			  <groupId>org.apache.maven.plugins</groupId>
-			  <artifactId>maven-assembly-plugin</artifactId>
-			    <executions>
-			      <execution>
-			         <goals>
-			           <goal>attached</goal>
-			         </goals>
-			         <phase>package</phase>
-			         <configuration>
-			           <descriptorRefs>
-			             <descriptorRef>jar-with-dependencies</descriptorRef>
-			          </descriptorRefs>
-			          <archive>
-			            <manifest>
-			              <mainClass>home24.recommender.Application</mainClass>
-			            </manifest>
-			          </archive>
-			        </configuration>
-			     </execution>
-			  </executions>
-			</plugin>		
 		</plugins>
 	</build>
-	<properties>
-		<xingu>1.6-SNAPSHOT</xingu>
-	</properties>
 </project>

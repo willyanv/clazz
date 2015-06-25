@@ -3,6 +3,21 @@ package clazz.designpatterns.copy;
 import java.io.IOException;
 import java.util.Arrays;
 
+/*
+
+	See diagram here: http://yuml.me/de0140ff
+
+	[Main]->[Copy]
+	[Main]->[Writer{bg:blue}]
+	[Main]->[Reader{bg:blue}]
+	[Copy]->[Writer]
+	[Copy]->[Reader]
+	[Writer]^-[StdoutWriter{bg:red}]
+	[Writer]^-[PrinterWriter{bg:red}]
+	[Reader]^-[StdinReader{bg:red}]
+	[Reader]^-[FileReader{bg:red}]
+
+ */
 public class CopyCharactersRefactored2
 {
 	private int	size;

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Romanos</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background="img/illustration.gif">
+					<div class="box" style="padding: 20px 0px !important;">
+						<h1 class="yellow">Design Patterns</h1>
+						<h5>Leandro Rodrigo Saad Cruz</h5>
+						<p>leandro@scrum.com.br</p>
+						<p>
+							<a href="https://github.com/leandrocruz/clazz/">github.com/leandrocruz/clazz</a>
+						</p>
+					</div>
+				</section>
+				<section>
+					<h1>The Chaos Report</h1>
+					<ul>
+						<li>31.1% dos projetos serão cancelados antes de sua conclusão</li>
+						<li>$81 bi em projetos cancelados + $59 bi para completar projetos atrasados (EUA/1995).</li>
+						<li>52.7% dos projetos irão custar aproximadamente o dobro da sua estimativa inicial</li>
+						<li>16.2% on-time e on-budget (preço e prazo esperados)</li>
+						<li>32% de sucesso (em 2009)</li>
+					</ul>
+					<p>
+						<a class="ref" href="http://www.csus.edu/indiv/v/velianitis/161/ChaosReport.pdf">The Standish Group (1995, 2009)</a>
+					</p>
+				</section>
+				<section data-background="#fff">
+					<img src="img/why.png" class="plain"/>
+				</section>
+				<section>
+					<h1>Sintomas</h1>
+					<ul>
+						<li>Falta de entendimento das necessidades do usuário</li>
+						<li>Incompetência para gerenciar mudanças em requisitos</li>
+						<li>Módulos incompatíveis</li>
+						<li>Dificuldade de manter e extender o Software</li>
+						<li>Descoberta tardia de problemas graves no Projeto</li>
+						<li>Baixa qualidade do Software</li>
+						<li>Performance inaceitável do sistema</li>
+						<li>Ausência de um processo confiável de build/release</li>
+					</ul>
+					<p>
+						<a class="ref" href="http://www.amazon.com/The-Rational-Unified-Process-Introduction/dp/0321197704">The Rational Unified Process: An Introduction</a>
+					</p>
+				</section>
+				<section>
+					<h1>Causas</h1>
+					<ul>
+						<li>Gerenciamento de requisitos inadequado</li>
+						<li>Comunicação ambígua e imprecisa</li>
+						<li>Arquiteturas frágeis</li>
+						<li>Inconsistências no gerenciamento de requisitos, projeto e implementação</li>
+						<li>Testes insuficientes</li>
+						<li>Avaliação subjetiva do estatus do projeto</li>
+						<li>Falha ao atacar os riscos</li>
+						<li>Propagação descontrolada das mudanças</li>
+						<li>Automação insuficiente</li>
+						<li>Complexidade esmagadora</li>
+					</ul>
+				</section>
+				<section data-background="#fff">
+					<h1>Complexidade</h1>
+					<img class="plain" src="img/Stacey-Matrix-on-complexity-for-software-development.jpg"/>
+				</section>
+				<section>
+					<h1>Motivos</h1>
+					<ul>
+						<li>Flexibilidade</li>
+						<li>Sistema Discreto (não contínuo)</li>
+						<li>Invisível (sem abstrações geométricas)</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Gerência da Complexidade</h1>
+					<ul>
+						<li>Paradigma OO</li>
+						<li>Metodologias e Processos</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				help: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>

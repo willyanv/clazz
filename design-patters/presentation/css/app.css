@@ -1,0 +1,94 @@
+.yellow {
+	color: yellow !important;
+}
+
+.shadow {
+	text-shadow: 1px 1px 1px #000 !important;
+}
+.quote {
+	text-align: justify;
+	font-style: italic !important;
+}
+
+.quote:before {
+	content: "\201C";
+}
+
+.quote:after {
+	content: "\201D";
+}
+
+.ref {
+	text-align: left;
+	font-size: 12pt !important;
+}
+
+.plain {
+	border:0 !important;
+	box-shadow: none !important;
+}
+
+.box {
+	padding: 30px !important;
+	border-radius: 10px;
+	background-color: #000;
+	background: rgba(0,0,0,0.9)    /* 70% opaque red */
+}
+
+li.ident {
+	list-style-type: circle;
+	margin-left: 30px;
+}
+
+.photo {
+	box-shadow: 30px 30px 10px 5px #000;
+}
+
+.flat {
+	box-shadow: none !important;
+}
+
+.poster {
+	float: left;
+	_border: 1px solid red !important;
+	display: inline;
+}
+
+.poster p {
+	color: #fff;
+	background-color: #000;
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+}
+
+dl.inline {
+}
+
+dl.inline dt {
+	display: inline-block;
+	text-align: right;
+	padding-right: 10px;
+}
+
+dl.inline dd {
+	display: inline;
+	margin: 0;
+}
+
+dl.inline dd:after{
+	display: block;
+	content: '';
+}
+
+dl.verse-table dt {
+	width: 200px;
+}
+
+dl.verse-table-2 dt {
+	min-width: 400px;
+}
+
+dl.verse-table-2 dd {
+	border-bottom: 1px dotted yellow;
+}

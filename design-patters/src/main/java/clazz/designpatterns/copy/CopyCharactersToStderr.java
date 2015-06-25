@@ -39,6 +39,5 @@ public class CopyCharactersToStderr
 
 			Arrays.fill(buffer, (byte) 0);
 		}
-
 	}
 }

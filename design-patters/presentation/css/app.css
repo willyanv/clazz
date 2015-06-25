@@ -2,6 +2,10 @@
 	color: yellow !important;
 }
 
+.white {
+	color: #fff !important;
+}
+
 .shadow {
 	text-shadow: 1px 1px 1px #000 !important;
 }

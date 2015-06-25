@@ -8,6 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
 		<link rel="stylesheet" href="css/app.css">
 		<link rel="stylesheet" href="css/theme/black.css" id="theme">
 	</head>
@@ -20,9 +21,6 @@
 						<h1 class="yellow">Design Patterns</h1>
 						<h5>Leandro Rodrigo Saad Cruz</h5>
 						<p>leandro@scrum.com.br</p>
-						<p>
-							<a href="https://github.com/leandrocruz/clazz/">github.com/leandrocruz/clazz</a>
-						</p>
 					</div>
 				</section>
 				<section>
@@ -39,7 +37,7 @@
 					</p>
 				</section>
 				<section data-background="#fff">
-					<img src="img/why.png" class="plain"/>
+					<img class="plain" src="img/why.png" />
 				</section>
 				<section>
 					<h1>Sintomas</h1>
@@ -74,7 +72,7 @@
 				</section>
 				<section data-background="#fff">
 					<h1>Complexidade</h1>
-					<img class="plain" src="img/Stacey-Matrix-on-complexity-for-software-development.jpg"/>
+					<img class="plain" src="img/complexity-matrix.jpg"/>
 				</section>
 				<section>
 					<h1>Motivos</h1>
@@ -84,11 +82,210 @@
 						<li>Invisível (sem abstrações geométricas)</li>
 					</ul>
 				</section>
-				<section>
-					<h1>Gerência da Complexidade</h1>
+				<section data-background="yellow">
+					<h2>Gerência da Complexidade</h2>
 					<ul>
 						<li>Paradigma OO</li>
 						<li>Metodologias e Processos</li>
+					</ul>
+				</section>
+				<section data-background="img/architecture.jpg">
+					<div style="height: 800px;">
+						<h1 class="yellow shadow">Design Patterns</h1>
+					</div>
+				</section>
+				<section data-background="#4D7E65">
+					<p class="quote">Design patterns are solutions to software design problems
+						you find again and again in real-world application development.
+						Patterns are about reusable designs and interactions of objects.</p>
+					<p>
+						<a class="ref" href="http://www.dofactory.com/net/design-patterns">doFactory</a>
+					</p>
+				</section>
+				<section data-background="#fff">
+					<img class="plain" src="img/why.png" />
+				</section>
+				<section data-background="#fff">
+					<h2>Processo de Apodrecimento do Software</h2>
+					<img class="plain" src="img/poison.jpg" />
+				</section>
+				<section data-background="purple">
+					<p>Show me the code</p>
+					<p>
+						<a class="white" href="https://github.com/leandrocruz/clazz">github.com/leandrocruz/clazz</a>
+					</p>
+				</section>
+				<section>
+					<p>CopyCharacters</p>
+<pre><code class="java">byte[] buffer = new byte[SIZE];
+int count;
+while((count = System.in.read(buffer)) != -1)
+{
+	String input = new String(buffer);
+	if(input.trim().equals("q"))
+	{
+		System.out.println("Bye!");
+		return;
+	}
+	System.out.println(input.trim());
+	Arrays.fill(buffer, (byte) 0);
+}
+</code></pre>
+				</section>
+				<section>
+					<p>CopyCharactersToStderr</p>
+<pre><code class="java">private static final boolean useStderr = true;
+/* ... */
+while((count = System.in.read(buffer)) != -1)
+{
+	String input = new String(buffer);
+	if(input.trim().equals("q"))
+	{
+		if(useStderr)
+		{
+			System.err.println("Bye!");
+		}
+		else
+		{
+			System.out.println("Bye!");
+		}
+		return;
+	}
+	if(useStderr)
+	{
+		System.err.println(input.trim());
+	}
+	else
+	{
+		System.out.println(input.trim());
+	}
+	/* ... */
+}
+</code></pre>
+				</section>
+				<section>
+					<p>CopyCharactersFromFileToStderr</p>
+<pre><code class="java">private static final boolean useStderr = true;
+private static final boolean copyFromFile = true;
+/* ... */
+byte[] buffer = new byte[SIZE];
+int count;
+InputStream is = null;
+if(copyFromFile)
+{
+	is = new FileInputStream(new File("/tmp/file.txt"));
+}
+while((count = copyFromFile ? is.read(buffer) : System.in.read(buffer)) != -1)
+{
+	String input = new String(buffer);
+	if(input.trim().equals("q"))
+	{
+		if(useStderr)
+		{
+			System.err.println("Bye!");
+		}
+		else
+		{
+			System.out.println("Bye!");
+		}
+		return;
+	}
+	if(useStderr)
+	{
+		System.err.println(input.trim());
+	}
+	else
+	{
+		System.out.println(input.trim());
+	}
+	/* ... */
+}
+</code></pre>
+				</section>
+				<section data-background="#000">
+					<img src="img/gone-wrong2.gif" />
+				</section>
+				<section>
+					<p>Reader</p>
+<pre><code class="java">public interface Reader
+{
+	int read(byte[] buffer)
+		throws IOException;
+}
+</code></pre>
+				</section>
+				<section>
+					<p>Writer</p>
+<pre><code class="java">public interface Writer
+{
+	void writeln(String s);
+}
+</code></pre>
+				</section>
+				<section>
+					<p>CopyCharactersRefactored</p>
+<pre><code class="java">private static final int SIZE = 100;
+
+public static void main(String[] args)
+	throws Exception
+{
+	Reader reader = null; // Could be any reader
+	Writer writer = null; // Could be any writer
+
+	byte[] buffer = new byte[SIZE];
+	int count;
+	while((count = reader.read(buffer)) != -1)
+	{
+		String input = new String(buffer);
+		if(input.trim().equals("q"))
+		{
+			writer.writeln("Bye!");
+			return;
+		}
+		writer.writeln(input.trim());
+		Arrays.fill(buffer, (byte) 0);
+	}
+}</code></pre>
+				</section>
+				<section data-background="#B5533C">
+					<h1>Tecnical Debt</h1>
+				</section>
+				<section >
+					<h2>Creational Patterns</h2>
+					<ul>
+						<li>Abstract Factory</li>
+						<li>Builder</li>
+						<li>Factory Method</li>
+						<li>Prototype</li>
+						<li>Singleton</li>
+					</ul>
+				</section>
+				<section data-background="">
+					<h2>Structural Patterns</h2>
+					<ul>
+						<li>Adapter</li>
+						<li>Bridge</li>
+						<li>Composite</li>
+						<li>Decorator</li>
+						<li>Facade</li>
+						<li>Flyweight</li>
+						<li>Proxy</li>
+					</ul>
+				</section>
+				<section data-background="">
+					<h2>Behavioral Patterns</h2>
+					<ul>
+						<li>Chain of Responsibility</li>
+						<li>Command</li>
+						<li>Interpreter</li>
+						<li>Iterator</li>
+						<li>Mediator</li>
+						<li>Memento</li>
+						<li>Observer</li>
+						<li>State</li>
+						<li>Strategy</li>
+						<li>Template Method</li>
+						<li>Visitor</li>
 					</ul>
 				</section>
 			</div>
@@ -113,7 +310,13 @@
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() {
+						hljs.configure({
+							tabReplace: '  ', // 4 spaces
+						});
+
+						hljs.initHighlightingOnLoad();
+					} },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true }
 				]

@@ -119,11 +119,9 @@
 					<p>CopyCharacters</p>
 <pre><code class="java">byte[] buffer = new byte[SIZE];
 int count;
-while((count = System.in.read(buffer)) != -1)
-{
+while((count = System.in.read(buffer)) != -1) {
 	String input = new String(buffer);
-	if(input.trim().equals("q"))
-	{
+	if(input.trim().equals("q")) {
 		System.out.println("Bye!");
 		return;
 	}
@@ -136,29 +134,19 @@ while((count = System.in.read(buffer)) != -1)
 					<p>CopyCharactersToStderr</p>
 <pre><code class="java">private static final boolean useStderr = true;
 /* ... */
-while((count = System.in.read(buffer)) != -1)
-{
+while((count = System.in.read(buffer)) != -1) {
 	String input = new String(buffer);
-	if(input.trim().equals("q"))
-	{
+	if(input.trim().equals("q")) {
 		if(useStderr)
-		{
 			System.err.println("Bye!");
-		}
 		else
-		{
 			System.out.println("Bye!");
-		}
 		return;
 	}
 	if(useStderr)
-	{
 		System.err.println(input.trim());
-	}
 	else
-	{
 		System.out.println(input.trim());
-	}
 	/* ... */
 }
 </code></pre>
@@ -172,37 +160,26 @@ byte[] buffer = new byte[SIZE];
 int count;
 InputStream is = null;
 if(copyFromFile)
-{
 	is = new FileInputStream(new File("/tmp/file.txt"));
-}
-while((count = copyFromFile ? is.read(buffer) : System.in.read(buffer)) != -1)
-{
+while((count = copyFromFile ? is.read(buffer) : System.in.read(buffer)) != -1) {
 	String input = new String(buffer);
-	if(input.trim().equals("q"))
-	{
+	if(input.trim().equals("q")) {
 		if(useStderr)
-		{
 			System.err.println("Bye!");
-		}
 		else
-		{
 			System.out.println("Bye!");
-		}
 		return;
 	}
 	if(useStderr)
-	{
 		System.err.println(input.trim());
-	}
 	else
-	{
 		System.out.println(input.trim());
-	}
 	/* ... */
 }
 </code></pre>
 				</section>
 				<section data-background="#000">
+					<h2>What's next?</h2>
 					<img src="img/gone-wrong2.gif" />
 				</section>
 				<section>
@@ -276,6 +253,23 @@ public static void main(String[] args)
 					<h2 class="yellow shadow">Morte Lenta e Dolorosa</h2>
 				</section>
 				<section>
+					<h2>Software Engineering Body of Knowledge</h2>
+					<ul>
+						<li>Padrões de Arquitetura</li>
+						<li>Padrões de Projeto</li>
+						<li>Padrões de Protocolos</li>
+						<li>Padrões de Design</li>
+					</ul>
+				</section>
+				<section data-background="#4D7E65">
+					<p class="quote">Design patterns are solutions to software design problems
+						you find again and again in real-world application development.
+						Patterns are about reusable designs and interactions of objects.</p>
+					<p>
+						<a class="ref" href="http://www.dofactory.com/net/design-patterns">doFactory</a>
+					</p>
+				</section>
+				<section>
 					<h2>Creational Patterns</h2>
 					<ul>
 						<li>Abstract Factory</li>
@@ -312,6 +306,116 @@ public static void main(String[] args)
 						<li>Template Method</li>
 						<li>Visitor</li>
 					</ul>
+				</section>
+				<section data-background="purple">
+					<h2>Abstract Factory</h2>
+					<p>Provide an interface for creating families of related or dependent objects without specifying their concrete classes.</p>
+					<img src="img/patterns/abstract.gif" />
+				</section>
+				<section data-background="purple">
+					<h2>Builder</h2>
+					<p>Separate the construction of a complex object from its representation so that the same construction process can create different representations.</p>
+					<img src="img/patterns/builder.gif" />
+				</section>
+				<section data-background="purple">
+					<h2>Factory Method</h2>
+					<p>Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.</p>
+					<img src="img/patterns/factory.gif" />
+				</section>
+				<section data-background="purple">
+					<h2>Singleton</h2>
+					<p>Ensure a class has only one instance and provide a global point of access to it.</p>
+					<img src="img/patterns/singleton.gif" />
+				</section>
+				<section data-background="#000">
+					<h2>Adapter</h2>
+					<p>Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.</p>
+					<img src="img/patterns/adapter.gif" />
+				</section>
+				<section data-background="#000">
+					<h2>Bridge</h2>
+					<p>Decouple an abstraction from its implementation so that the two can vary independently.</p>
+					<img src="img/patterns/bridge.gif" />
+				</section>
+				<section data-background="#000">
+					<h2>Composite</h2>
+					<p>Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.</p>
+					<img src="img/patterns/composite.gif" />
+				</section>
+				<section data-background="#000">
+					<h2>Decorator</h2>
+					<p>Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.</p>
+					<img src="img/patterns/decorator.gif" />
+				</section>
+				<section data-background="#000">
+					<h2>Facade</h2>
+					<p>Provide a unified interface to a set of interfaces in a subsystem. Façade defines a higher-level interface that makes the subsystem easier to use.</p>
+					<img src="img/patterns/facade.gif" />
+				</section>
+				<section data-background="#000">
+					<h2>Flyweight</h2>
+					<p>Use sharing to support large numbers of fine-grained objects efficiently.</p>
+					<img src="img/patterns/flyweight.gif" />
+				</section>
+				<section data-background="#000">
+					<h2>Proxy</h2>
+					<p>Provide a surrogate or placeholder for another object to control access to it.</p>
+					<img src="img/patterns/proxy.gif" />
+				</section>
+				<section data-background="#3d82ab">
+					<h2>Chain of Responsibility</h2>
+					<p>Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it.</p>
+					<img src="img/patterns/chain.gif" />
+				</section>
+				<section data-background="#3d82ab">
+					<h2>Command</h2>
+					<p>Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.</p>
+					<img src="img/patterns/command.gif" />
+				</section>
+				<section data-background="#3d82ab">
+					<h2>Interpreter</h2>
+					<p>Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.</p>
+					<img src="img/patterns/interpreter.gif" />
+				</section>
+				<section data-background="#3d82ab">
+					<h2>Iterator</h2>
+					<p>Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.</p>
+					<img src="img/patterns/iterator.gif" />
+				</section>
+				<section data-background="#3d82ab">
+					<h2>Mediator</h2>
+					<p>Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.</p>
+					<img src="img/patterns/mediator.gif" />
+				</section>
+				<section data-background="#3d82ab">
+					<h2>Memento</h2>
+					<p>Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later.</p>
+					<img src="img/patterns/memento.gif" />
+				</section>
+				<section data-background="#3d82ab">
+					<h2>Observer</h2>
+					<p>Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.</p>
+					<img src="img/patterns/observer.gif" />
+				</section>
+				<section data-background="#3d82ab">
+					<h2>State</h2>
+					<p>Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.</p>
+					<img src="img/patterns/state.gif" />
+				</section>
+				<section data-background="#3d82ab">
+					<h2>Strategy</h2>
+					<p>Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</p>
+					<img src="img/patterns/strategy.gif" />
+				</section>
+				<section data-background="#3d82ab">
+					<h2>Template Method</h2>
+					<p>Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.</p>
+					<img src="img/patterns/template.gif" />
+				</section>
+				<section data-background="#3d82ab">
+					<h2>Visitor</h2>
+					<p>Represent an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.</p>
+					<img src="img/patterns/visitor.gif" />
 				</section>
 			</div>
 		</div>

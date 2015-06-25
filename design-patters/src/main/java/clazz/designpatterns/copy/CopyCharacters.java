@@ -1,4 +1,4 @@
-package clazz.designpatterns;
+package clazz.designpatterns.copy;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

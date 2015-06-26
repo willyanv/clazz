@@ -3,7 +3,7 @@ package clazz.designpatterns.pattern.shape;
 import clazz.designpatterns.pattern.visitor.Visitor;
 
 public class Cube
-	implements Shape
+	implements Solid
 {
 	private double	len;
 

@@ -2,7 +2,7 @@ package clazz.designpatterns.pattern.shape;
 
 import clazz.designpatterns.pattern.visitor.VisitorAcceptor;
 
-public interface Shape
+public interface Solid
 	extends VisitorAcceptor
 {
 	double getArea();

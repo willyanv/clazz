@@ -3,7 +3,7 @@ package clazz.designpatterns.pattern.shape;
 import clazz.designpatterns.pattern.visitor.Visitor;
 
 public class Sphere
-	implements Shape
+	implements Solid
 {
 	private double	radius;
 

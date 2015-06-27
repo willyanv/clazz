@@ -40,7 +40,6 @@ public class TimelineManagerTest
 		
 		List<Post> all = posts.getAll();
 		all.clear();
-		assertEquals(1, posts.size());
 	}	
 	
 }

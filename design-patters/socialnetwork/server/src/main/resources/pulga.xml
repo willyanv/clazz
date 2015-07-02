@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pulga>
-	<component	role=""
-				class=""/>
+	<component	key="api"
+				role="xingu.codec.Codec"
+				class="xingu.codec.impl.flexjson.FlexJsonCodec" />
 </pulga>

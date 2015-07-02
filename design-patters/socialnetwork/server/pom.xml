@@ -9,10 +9,21 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>clazz</groupId>
 	<artifactId>socialnetwork-server</artifactId>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>Design Patterns :: Social Network :: Server</name>
 	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+        	<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.1.3</version>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -25,8 +36,34 @@
 		</dependency>
 		<dependency>
 			<groupId>xingu</groupId>
+			<artifactId>codec-flexjson</artifactId>
+			<version>${xingu}</version>
+		</dependency>
+		<dependency>
+			<groupId>xingu</groupId>
+			<artifactId>xingu-idgenerator</artifactId>
+			<version>${xingu}</version>
+		</dependency>
+		<dependency>
+			<groupId>xingu</groupId>
 			<artifactId>xingu-creator</artifactId>
 			<version>1.6-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>8.1.9.v20130131</version>
+				<configuration>
+					<stopKey>STOP</stopKey>
+					<stopPort>9999</stopPort>
+					<webAppConfig>
+      					<contextPath>/api</contextPath>
+     				</webAppConfig>					
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

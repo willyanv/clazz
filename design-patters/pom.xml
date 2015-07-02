@@ -52,4 +52,7 @@
 		<module>patterns</module>
 		<module>socialnetwork</module>
 	</modules>
+	<properties>
+		<xingu>1.6-SNAPSHOT</xingu>
+	</properties>
 </project>

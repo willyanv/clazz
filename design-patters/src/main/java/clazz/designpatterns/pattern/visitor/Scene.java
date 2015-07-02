@@ -11,11 +11,11 @@ import clazz.designpatterns.pattern.visitor.impl.GetVolumeVisitor;
 
 public class Scene
 {
-	private List<Solid>	shapes = new ArrayList<>();
+	private List<Solid>	objects = new ArrayList<>();
 
 	private void add(Solid shape)
 	{
-		shapes.add(shape);
+		objects.add(shape);
 	}
 
 	public static void main(String[] args)
@@ -25,7 +25,7 @@ public class Scene
 		scene.add(new Cube(5));
 		//scene.add(new Sphere(3));
 		
-		Visitor visitor = true ? new GetAreaVisitor() : new GetVolumeVisitor();
+		Visitor visitor = new GetVolumeVisitor();
 		double  result  = scene.apply(visitor);
 		System.out.println(result);
 	}
@@ -33,9 +33,9 @@ public class Scene
 	private double apply(Visitor visitor)
 	{
 		double result = 0;
-		for(Solid shape : shapes)
+		for(Solid solid : objects)
 		{
-			result = result + shape.accept(visitor);
+			result = result + solid.accept(visitor);
 		}
 		return result;
 	}

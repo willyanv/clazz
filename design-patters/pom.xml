@@ -3,10 +3,10 @@
 	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>clazz</groupId>
-	<artifactId>design-patterns</artifactId>
-	<packaging>jar</packaging>
+	<artifactId>design-patterns-parent</artifactId>
+	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>Design Patterns</name>
+	<name>Design Patterns :: Parent</name>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -19,16 +19,6 @@
 			<artifactId>mockito-all</artifactId>
 			<version>1.9.0</version> 
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.3.2</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.4</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -58,4 +48,8 @@
 			</plugin>
 		</plugins>
 	</build>
+	<modules>
+		<module>patterns</module>
+		<module>socialnetwork</module>
+	</modules>
 </project>

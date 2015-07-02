@@ -1,8 +1,6 @@
 # Clazz
 
 Repositório de código para as aulas que ministros nas Universidades
-
-
 # Links
 
  * https://help.github.com/articles/generating-ssh-keys/

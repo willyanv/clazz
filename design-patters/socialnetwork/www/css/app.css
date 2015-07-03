@@ -1,0 +1,8 @@
+core-toolbar {
+	background-color: #444;
+	color: #fff;
+}
+
+core-toolbar a, core-toolbar a:visited {
+	color: #fff;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="Leandro Rodrigo Saad Cruz">
+		<title>Social Network</title>
+
+		<script type="text/javascript">
+			var require = {
+				baseUrl	: '/js',
+			};
+		</script>
+		<script src="bower/requirejs/require.js"></script>
+		<script src="bower/jquery/dist/jquery.min.js"></script>
+
+		<script>
+			if('registerElement' in document
+					&& 'createShadowRoot' in HTMLElement.prototype
+					&& 'import' in document.createElement('link')
+					&& 'content' in document.createElement('template'))
+			{
+				console.log('Your Brower has native support for web components');
+			}
+			else
+			{
+				console.log('Your Brower has no native support for web components');
+				document.write('<script src="bower/webcomponentsjs/webcomponents.min.js"><\/script>');
+			}
+		</script>
+
+		<link rel="import" href="imports.html">
+		<link rel="stylesheet" href="bower/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/app.css">
+	</head>
+
+	<body fullbleed unresolved>
+		<sn-controller sessionCookieName="sn_session" start="/#/start" routerState="{{ routerState }}">
+			<div whenNotLoggedIn>
+				<div layout horizontal center-center fit>
+					<div style="text-align: center; border: 0px solid red;">
+						<h1>The Social Network</h1>
+						<h4>by Leandro Rodrigo Saad Cruz</h4>
+						<h6>built with <a href="https://www.polymer-project.org">polymer</a></h6>
+
+						<sn-login></sn-login>
+					</div>
+				</div>
+			</div>
+			<div  whenLoggedIn>
+				<core-toolbar>
+					<span flex></span>
+					<a href="/#/start">home</a>
+					<sn-search></sn-search>
+					<core-icon icon="polymer"></core-icon>
+				</core-toolbar>
+				<g-app-router autoInit="false" defaultRoute="start" state="{{ routerState }}">
+					<g-app-route name="start" path="/start"></g-app-route>
+					<g-app-route name="query" path="/query/:query"></g-app-route>
+					<core-pages valueattr="page" selected="start" selector>
+						<start-page page="start"></start-page>
+						<query-page page="query"></query-page>
+					</core-pages>
+				</g-app-router>
+			</div>
+		</sn-controller>
+	</body>
+</html>

@@ -1,0 +1,10 @@
+<polymer-element name="sn-controller" extends="g-app-controller">
+	<template>
+		<shadow></shadow>
+	</template>
+	<script>
+        require(['elements/sn-controller.js'], function (module) {
+			Polymer('sn-controller', module);
+        });
+	</script>
+</polymer-element>

@@ -1,0 +1,16 @@
+<polymer-element name="sn-post" attributes="post">
+	<template>
+		<link rel="stylesheet" href="sn-post.css">
+		<div id="content">
+			{{ post.text }}
+		</div>
+	</template>
+	<script>
+		Polymer('sn-post', {
+			openPost: function(e) {
+				e.preventDefault();
+				alert('TODO: open post');
+			}
+		});
+	</script>
+</polymer-element>

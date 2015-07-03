@@ -1,0 +1,16 @@
+<polymer-element name="sn-search">
+	<template>
+		<link rel="stylesheet" href="sn-search.css">
+        <form class="form-inline">
+            <div class="form-group">
+                <input type="text" class="form-control" value="{{ query }}">
+            </div>
+            <button id="btn" class="btn btn-primary" on-click="{{ doSearch }}" disabled?="{{ disabled }}">Search</button>
+        </form>
+	</template>
+	<script>
+        require(['elements/sn-search.js'], function (module) {
+            Polymer('sn-search', module);
+        });
+	</script>
+</polymer-element>

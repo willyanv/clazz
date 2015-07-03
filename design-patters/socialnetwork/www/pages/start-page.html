@@ -1,0 +1,28 @@
+<polymer-element name="start-page">
+	<template>
+		<link rel="stylesheet" href="start-page.css">
+		<div id="content">
+			<div id="addPost">
+				<h1>Share your experiences</h1>
+				<textarea class="form-control" rows="3" value="{{ text }}"></textarea>
+				
+				<div horizontal layout>
+  					<div flex></div>
+  					<div>
+  						<button id="btn" class="btn btn-primary" on-click="{{ doPost }}" disabled?="{{ disabled }}">Post</button>
+  					</div>
+				</div>
+			</div>
+			<div id="posts">
+				<template repeat="{{ post in posts }}">
+					<sn-post post="{{ post }}"></sn-post>
+				</template>
+			</div>
+		</div>
+	</template>
+	<script>
+	    require(['pages/start-page.js'], function (module) {
+	        Polymer('start-page', module);
+	    });
+	</script>
+</polymer-element>

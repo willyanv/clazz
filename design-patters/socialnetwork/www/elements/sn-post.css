@@ -1,0 +1,11 @@
+@import "../bower/bootstrap/dist/css/bootstrap.min.css";
+
+:host {
+	display: block;
+}
+
+#content {
+	border-bottom: 1px solid #eee;
+	margin: 15px 0;
+	font-size: 14pt;
+}

@@ -1,0 +1,32 @@
+{
+  "name": "TheSocialNetwork",
+  "version": "1.0.0",
+  "authors": [
+    "Leandro Cruz <leandro.saad@gmail.com>"
+  ],
+  "main": "main.js",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "NA",
+  "homepage": "http://thesocialnetwork.com.br",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+
+  "dependencies": {
+      "jquery": "~2.1.0",
+      "json2": "*",
+      "bootstrap": "~3.2.0",
+      "requirejs": "2.1.10",
+      "g-app-controller": "guarajs/g-app-controller#master",
+      "g-app-router": "guarajs/g-app-router#master",
+      "polymer": "Polymer/polymer#^0.5.0",
+      "core-elements": "Polymer/core-elements#^0.5.0"
+  }
+}

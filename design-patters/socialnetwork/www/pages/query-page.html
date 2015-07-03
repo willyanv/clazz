@@ -1,0 +1,19 @@
+<polymer-element name="query-page" attributes="query">
+	<template>
+		<link rel="stylesheet" href="start-page.css">
+		
+		<div id="content">
+			<div class="page-header">
+  				<h1>{{ query }} <small>search results</small></h1>
+  			</div>
+		<template repeat="{{ document in documents }}">
+				<sn-document document="{{ document }}"></sn-document>
+			</template>
+		</div>
+	</template>
+	<script>
+	    require(['pages/query-page.js'], function (module) {
+	        Polymer('query-page', module);
+	    });
+	</script>
+</polymer-element>

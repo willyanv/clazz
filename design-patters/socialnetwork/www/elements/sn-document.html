@@ -1,0 +1,17 @@
+<polymer-element name="sn-document" attributes="document">
+	<template>
+		<link rel="stylesheet" href="sn-document.css">
+		<div>
+			<a href="#" on-click="{{ openDocument }}"><core-icon icon="open-in-new"></core-icon></a>
+			{{ document.text }}
+		</div>
+	</template>
+	<script>
+		Polymer('sn-document', {
+			openDocument: function(e) {
+				e.preventDefault();
+				alert('TODO: open document');
+			}
+		});
+	</script>
+</polymer-element>

@@ -1,0 +1,9 @@
+@import "../bower/bootstrap/dist/css/bootstrap.min.css";
+
+#content {
+	border: 0px solid red;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+}

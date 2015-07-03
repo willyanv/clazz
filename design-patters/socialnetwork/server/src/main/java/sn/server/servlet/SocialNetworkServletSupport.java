@@ -57,7 +57,7 @@ public abstract class SocialNetworkServletSupport
 		 */
 		response.addHeader("Access-Control-Allow-Origin", "*");
 		response.addHeader("Access-Control-Allow-Methods", "HEAD, OPTIONS, GET, POST, PUT, DELETE");
-		response.addHeader("Access-Control-Allow-Headers", "X-Crossover-Auth-Token");
+		response.addHeader("Access-Control-Allow-Headers", "X-TheSocialNetwork-Auth-Token");
 
 		super.doOptions(req, response);
 	}

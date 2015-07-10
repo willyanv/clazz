@@ -17,3 +17,5 @@ Repositório de código para as aulas que ministro nos cursos de pós-graduaçã
  * [APIGee](https://apigee.com)
  * [Programmable Web](http://www.programmableweb.com/)
  * [Mashape](https://www.mashape.com/)
+
+ Willyan Vincenzi

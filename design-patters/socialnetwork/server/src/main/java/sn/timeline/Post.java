@@ -9,4 +9,7 @@ public interface Post
 	String getText();
 
 	Date getDate();
+
+	String getPostId();
+	void setPostId(String id);
 }

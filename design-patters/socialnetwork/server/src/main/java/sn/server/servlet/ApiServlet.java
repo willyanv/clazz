@@ -6,8 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 import sn.server.command.Command;
 import sn.server.command.CommandMapper;
 import xingu.container.Inject;
-import xingu.lang.NotImplementedYet;
-import xingu.lang.SorryException;
 
 public class ApiServlet
 	extends SocialNetworkServletSupport

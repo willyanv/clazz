@@ -3,4 +3,7 @@
 	<component	key="api"
 				role="xingu.codec.Codec"
 				class="xingu.codec.impl.flexjson.FlexJsonCodec" />
+
+	<component	role="sn.timeline.TimelineManager"
+				class="sn.timeline.impl.SimpleTimelineManager" />
 </pulga>

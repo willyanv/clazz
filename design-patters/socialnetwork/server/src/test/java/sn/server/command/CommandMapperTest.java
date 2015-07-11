@@ -1,6 +1,9 @@
 package sn.server.command;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
 
@@ -21,7 +24,9 @@ public class CommandMapperTest
 	public void testUnkonwCommand()
 		throws Exception
 	{
-		Command cmd = mapper.translate("/xxx");
+		HttpServletRequest request = mock(HttpServletRequest.class);
+		when(request.getPathInfo()).thenReturn("/xxx");
+		Command cmd = mapper.translate(request);
 		assertTrue(cmd instanceof UnknownCommand);
 	}
 
@@ -29,7 +34,9 @@ public class CommandMapperTest
 	public void testCommandMapping()
 		throws Exception
 	{
-		Command cmd = mapper.translate("/validate");
+		HttpServletRequest request = mock(HttpServletRequest.class);
+		when(request.getPathInfo()).thenReturn("/validate");
+		Command cmd = mapper.translate(request);
 		assertTrue(cmd instanceof Validate);
 	}
 }

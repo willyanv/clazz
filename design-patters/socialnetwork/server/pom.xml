@@ -49,6 +49,11 @@
 			<artifactId>xingu-creator</artifactId>
 			<version>1.6-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -59,9 +64,10 @@
 				<configuration>
 					<stopKey>STOP</stopKey>
 					<stopPort>9999</stopPort>
+					<port>8887</port>
 					<webAppConfig>
       					<contextPath>/api</contextPath>
-     				</webAppConfig>					
+     				</webAppConfig>
 				</configuration>
 			</plugin>
 		</plugins>

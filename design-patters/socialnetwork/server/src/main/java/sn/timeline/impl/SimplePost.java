@@ -7,10 +7,13 @@ import sn.timeline.Post;
 public class SimplePost
 	implements Post
 {
-
 	private long	userId;
+
 	private Date	date;
+
 	private String	text;
+
+	private String	postId;
 
 	public SimplePost(long userId, Date date, String text)
 	{
@@ -37,4 +40,15 @@ public class SimplePost
 		return date;
 	}
 
+	@Override
+	public String getPostId()
+	{
+		return postId;
+	}
+
+	@Override
+	public void setPostId(String id)
+	{
+		this.postId = id;
+	}
 }

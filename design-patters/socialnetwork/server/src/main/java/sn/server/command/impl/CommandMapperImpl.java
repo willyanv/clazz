@@ -1,6 +1,5 @@
 package sn.server.command.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,47 +7,55 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.avalon.framework.activity.Initializable;
 import org.apache.commons.beanutils.BeanUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import sn.server.command.Auth;
 import sn.server.command.Command;
 import sn.server.command.CommandMapper;
+import sn.server.command.AppendPost;
 import sn.server.command.UnknownCommand;
 import sn.server.command.Validate;
+import xingu.container.Inject;
+import xingu.factory.Factory;
 
 public class CommandMapperImpl
 	implements CommandMapper, Initializable
 {
-	private Map<String, Command> commandByPath = new HashMap<>();
+	@Inject
+	private Factory factory;
+
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	
+	private Map<String, Command> commandByPath = new HashMap<>();
+
 	@Override
 	public void initialize()
 		throws Exception
-	{}
+	{
+		commandByPath.put("/validate", factory.create(Validate.class));
+		commandByPath.put("/auth", factory.create(Auth.class));
+		commandByPath.put("/post", factory.create(AppendPost.class));
+	}
 
 	@Override
 	public Command translate(HttpServletRequest request)
 		throws Exception
 	{
 		String path = request.getPathInfo();
-		Map params = request.getParameterMap();
-		
-		Command cmd = null;
-		//return commandByPath.get(path);
-		switch(path)
-		{
-			case "/validate":
-				cmd = new Validate();
-				break;
-				
-			case "/auth":
-				cmd = new Auth();
-				break;
+		logger.info("Mapping command to: '{}'", path);
 
-			default:
-				cmd = new UnknownCommand();
-				break;
+		Command cmd = commandByPath.get(path);
+		if(cmd != null)
+		{
+			Map params = request.getParameterMap();
+			BeanUtils.populate(cmd, params);
 		}
-		BeanUtils.populate(cmd, params);
+		else
+		{
+			cmd = new UnknownCommand();
+		}
+		
 		return cmd;
 	}
 }

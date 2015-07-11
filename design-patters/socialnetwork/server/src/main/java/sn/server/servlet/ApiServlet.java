@@ -19,8 +19,7 @@ public class ApiServlet
 	protected Object process(HttpServletRequest request, HttpServletResponse response)
 		throws Exception
 	{
-		String path = request.getPathInfo();
-		Command command = mapper.translate(path);
+		Command command = mapper.translate(request);
 		return command.execute();
 	}
 }

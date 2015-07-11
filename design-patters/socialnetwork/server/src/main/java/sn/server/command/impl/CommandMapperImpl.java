@@ -3,6 +3,8 @@ package sn.server.command.impl;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.avalon.framework.activity.Initializable;
 
 import sn.server.command.Command;
@@ -21,8 +23,9 @@ public class CommandMapperImpl
 	{}
 
 	@Override
-	public Command translate(String path)
+	public Command translate(HttpServletRequest request)
 	{
+		String path = request.getPathInfo();
 		//return commandByPath.get(path);
 		if("/validate".equals(path))
 		{

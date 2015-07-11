@@ -2,15 +2,15 @@ package sn.server.command;
 
 public class ValidateReply
 {
-	private String	token;
+	private String	value;
 
 	public ValidateReply(String token)
 	{
-		this.token = token;
+		this.value = token;
 	}
 
-	public String getToken()
+	public String getValue()
 	{
-		return token;
+		return value;
 	}
 }
